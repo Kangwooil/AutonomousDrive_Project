@@ -1,0 +1,10 @@
+<launch>
+    <arg name="model" />
+
+    <param name="robot_description" textfile="$(find car_description)/urdf/myrobot.urdf" />
+
+    <param name="use_gui" value="false"/>
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="state_publisher" />
+    <!-- Starting robot state publish which will publish tf -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+</launch>

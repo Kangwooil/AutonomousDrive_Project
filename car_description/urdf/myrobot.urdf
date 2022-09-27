@@ -1,0 +1,102 @@
+ <?xml version="1.0"?>
+   <robot name="myrobot">
+
+    <link name="base_link">
+      <visual>
+        <geometry>
+          <box size="0.21 0.16 0.16"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0.0 0.00 0.1"/>
+        <material name="white">
+          <color rgba="1 1 1 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <link name="lwheel">
+      <visual>
+        <geometry>
+          <cylinder length="0.027" radius="0.0345"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="-0.085 0.11 0.0345"/>
+        <material name="black">
+          <color rgba="0 0 0 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <link name="rwheel">
+      <visual>
+        <geometry>
+          <cylinder length="0.027" radius="0.0345"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="-0.085 -0.11 0.0345"/>
+        <material name="black">
+          <color rgba="0 0 0 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <link name="caster_wheel">
+      <visual>
+        <geometry>
+          <cylinder length="0.012" radius="0.025"/>
+        </geometry>
+        <origin rpy="1.57 0 0" xyz="0.07 0.00 0.025"/>
+        <material name="black">
+          <color rgba="0 0 0 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <link name="wheel_track">
+      <visual>
+        <geometry>
+          <box size="0.04 0.19 0.002"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="-0.085 0.0 0.06"/>
+        <material name="white"/>
+      </visual>
+    </link>
+    <link name="laser_frame">
+      <visual>
+        <geometry>
+          <cylinder length="0.04" radius="0.04"/>
+        </geometry>
+        <origin xyz="0.065 0.0 0.2"/>
+        <material name="blue">
+          <color rgba="0 0 .8 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <joint name="base_to_lwheel" type="fixed">
+      <parent link="base_link"/>
+      <child link="lwheel"/>
+      <origin xyz="0 0 0"/>
+    </joint>
+
+    <joint name="base_to_rwheel" type="fixed">
+      <parent link="base_link"/>
+      <child link="rwheel"/>
+      <origin xyz="0 0 0"/>
+    </joint>
+
+    <joint name="base_to_wheel_track" type="fixed">
+      <parent link="base_link"/>
+      <child link="wheel_track"/>
+      <origin xyz="0 0 0"/>
+    </joint>
+
+    <joint name="base_to_caster_wheel" type="fixed">
+      <parent link="base_link"/>
+      <child link="caster_wheel"/>
+      <origin xyz="0 0 0"/>
+    </joint>
+
+    <joint name="base_to_laser" type="fixed">
+      <parent link="base_link"/>
+      <child link="laser_frame"/>
+      <origin xyz="0 0 0"/>
+    </joint>
+  </robot>
